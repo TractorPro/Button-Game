@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Untitled-1.css">
+    <style>
+    #head{
+        font-size: 200px;
+    }
+    #button{
+        font-size: 100px;
+    }
+    </style>
+</head>
+<body>
+    <h1 id="head">BOOM 7</h1>
+    <button onclick="changenum()" id="button">START</button>
+    <br>
+    <br>
+    <br>
+    <button onclick="reset()" id="button2">NEW GAME</button>
+    <script>
+        var x = 0;
+        function changenum(){
+            x++;
+            document.getElementById("button").innerHTML = x;
+            if(x%7==0|| x.toString().includes('7')){
+                document.getElementById("button").innerHTML = "BOOM";
+
+            }
+
+           
+        }
+        function reset(){
+            x = 0;
+            document.getElementById("button").innerHTML = "START";
+
+        }
+    </script>
+</body>
+</html>
