@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Button Game</title>
+    <style>
+      #button {
+        position: absolute; 
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 10px;
+        border: 2px solid black;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="button">Click me!</button>
+    <script>
+      const button = document.getElementById("button");
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
+      
+      function getRandomLocation() {
+        const randomX = Math.floor(Math.random() * screenWidth);
+        const randomY = Math.floor(Math.random() * screenHeight);
+        return [randomX, randomY];
+      }
+      
+      function moveButton() {
+        const [randomX, randomY] = getRandomLocation();
+        button.style.top = `${randomY}px`;
+        button.style.left = `${randomX}px`;
+      }
+      
+      function handleButtonClick() {
+        button.innerText = "YOU WIN!!!";
+        button.removeEventListener("mouseover", moveButton);
+        button.removeEventListener("click", handleButtonClick);
+      }
+      
+      button.addEventListener("mouseover", moveButton);
+      button.addEventListener("click", handleButtonClick);
+    </script>
+  </body>
+</html>
